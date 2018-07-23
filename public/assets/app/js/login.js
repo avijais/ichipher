@@ -33,7 +33,10 @@ $(document).ready(function() {
                 // blockUser();
             },
             success: function(data) {
+                console.log(data.redirectTo)
+                // return false;
                 if (data.status == 'success') {
+                    window.location = data.data.redirectTo
                     // alertify.error(data.msg);
                 } else if (data.status == 'error') {
                     // alertify.success(data.msg);
