@@ -12,10 +12,10 @@ class CreateClassesSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('classes_sections', function (Blueprint $table) {
-            $table->integer('class_id')->unsigned();
+        Schema::create('standard_section', function (Blueprint $table) {
+            $table->integer('standard_id')->unsigned();
             $table->integer('section_id')->unsigned();
-            $table->foreign('class_id')->references('id')->on('classes');
+            $table->foreign('standard_id')->references('id')->on('standards');
             $table->foreign('section_id')->references('id')->on('sections');
         });
     }
@@ -27,11 +27,11 @@ class CreateClassesSectionsTable extends Migration
      */
     public function down()
     {
-        echo ("classes_sections table drop called");
-        Schema::table('classes_sections', function (Blueprint $table) {
-            $table->dropForeign('classes_sections_class_id_foreign');
-            $table->dropForeign('classes_sections_section_id_foreign');
+        echo ("standard_section table drop called");
+        Schema::table('standard_section', function (Blueprint $table) {
+            $table->dropForeign('standard_section_standard_id_foreign');
+            $table->dropForeign('standard_section_section_id_foreign');
         });
-        Schema::drop('classes_sections');
+        Schema::drop('standard_section');
     }
 }

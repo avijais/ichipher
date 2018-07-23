@@ -12,7 +12,7 @@ class CreateClassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('standards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 12);
             $table->string('roman_name', 5);
@@ -29,9 +29,9 @@ class CreateClassesTable extends Migration
      */
     public function down()
     {
-        echo ("classes table drop called");
+        echo ("standards table drop called");
         Schema::disableForeignKeyConstraints();
-        Schema::drop('classes');
+        Schema::drop('standards');
         Schema::enableForeignKeyConstraints();
     }
 }
