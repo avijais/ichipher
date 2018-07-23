@@ -26,10 +26,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->command->info("Users table seeded successfully");
 
-        $this->call(ClssesTableSeeder::class);
-        $this->command->info("Classes table seeded successfully");
-
         $this->call(SectionsTableSeeder::class);
         $this->command->info("Sections table table seeded successfully");
+
+        $this->call(StandardsTableSeeder::class);
+        $this->command->info("Standard table seeded successfully");
     }
 }
