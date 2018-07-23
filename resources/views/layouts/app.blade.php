@@ -9,10 +9,10 @@
         <!--  CSS -->
         @include('layouts.styles')
     </head>
-    <!-- <body class="hold-transition skin-blue sidebar-mini"> -->
+    <body class="hold-transition skin-blue sidebar-mini">
 
     <!-- for login page -->
-    <body class="hold-transition login-page">
+    <!-- <body class="hold-transition login-page"> -->
     <!-- for login page -->
         <div class="wrapper">
             @include('layouts.header')
