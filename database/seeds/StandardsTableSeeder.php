@@ -34,17 +34,17 @@ class StandardsTableSeeder extends Seeder
 		$standard = new Standard();
 		$section = new Section();
 
-		// $sectionsDatas = $section->all();
+		$sectionsDatas = $section->all();
 		// print_r($sectionsDatas);
 
 		foreach ($standardDatas as $standardData) {
 			$response = $standard->create($standardData);
-			print_r("inserted id : "); print_r($response->id);
+			// print_r("inserted id : "); print_r($response->id);
 			// $clss->create($class);
 			// // Clss::create($class)->Sections()->attach(1);
 			// foreach ($sectionsDatas as $sectionData) {
 				// print_r($section->id);
-				// $response->section($response->id)->attach($sectionData->id);
+				// $standard->standard($response->id)->attach($sectionData->id);
 				// $clss->section()->attach($section->id);
 			// }
 		}
