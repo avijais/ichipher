@@ -37,3 +37,5 @@
 <script src="bower_components/admin-lte/dist/js/demo.js"></script>
 <script src="{{asset('assets/web/js/config.js')}}"></script>
 <script src="{{asset('assets/web/js/cons.js')}}"></script>
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
