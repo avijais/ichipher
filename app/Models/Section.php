@@ -13,4 +13,9 @@ class Section extends Model
     // public function section() {
     // 	return $this->belongsToMany('App\models\section');
     // }
+
+    public function homeworks()
+    {
+        return $this->hasMany('App\Models\Homework');
+    }
 }
