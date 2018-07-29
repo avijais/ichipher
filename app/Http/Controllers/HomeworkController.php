@@ -13,7 +13,7 @@ class HomeworkController extends Controller
     {
     	// print_r("from homeworks homeworks");
     	$homeworks = Homework::all()->toArray();
-    	dd($homeworks);
-    	// return json_encode($homeworks);
+    	// dd($homeworks);
+    	return json_encode($homeworks);
     }
 }
