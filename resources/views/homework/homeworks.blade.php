@@ -59,13 +59,13 @@
                   <td><?=date('d-M-y',strtotime($homework['created_at']))?></td>
                   <td>
                     <a href="javascript:void(0);">
-                      <i class="fa fa-eye margn-left-7" style="font-size: 18px;color:blue;"></i>
+                      <i class="fa fa-eye margn-left-10" style="font-size: 18px;color:blue;"></i>
                     </a>
                     <a href="javascript:void(0);">
-                      <i class="fa fa-pencil margn-left-7" style="font-size: 18px;color:green;"></i>
+                      <i class="fa fa-pencil margn-left-10" style="font-size: 18px;color:green;"></i>
                     </a>
                     <a href="javascript:void(0);">
-                      <i class="fa fa-trash margn-left-7" style="font-size: 18px;color:red;"></i>
+                      <i class="fa fa-trash margn-left-10" style="font-size: 18px;color:red;"></i>
                     </a>
                   </td>
                 </tr>
