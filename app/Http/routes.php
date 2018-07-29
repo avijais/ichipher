@@ -38,6 +38,7 @@ Route::auth();
 
 /*API*/
 Route::post('goinside','LoginController@goinside');
+Route::get('homeworks','HomeworkController@homeworks');
 
 // Route::group(['middleware' => ['auth:api']], function () {
 	// Route::post('goinside','LoginController@goinside');
