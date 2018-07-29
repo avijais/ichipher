@@ -20,7 +20,14 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
+
+        <li>
+          <a href="{{url('/homeworks')}}">
+            <i class="fa fa-book"></i> <span>Homework Management</span>
+          </a>
+        </li>
+
+        <!-- <li class="treeview">
           <a href="javascript:void(0);">
             <i class="fa fa-home"></i> <span>Homeworks</span>
             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -28,11 +35,24 @@
           <ul class="treeview-menu">
             <li>
               <a href="{{url('/homeworks')}}">
-              <!-- <a href="javascript:void(0);" data-route="/homeworks"> --><i class="fa fa-circle-o"></i> Homeworks</a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> Add Homework</a></li>
+              <i class="fa fa-circle-o"></i> Homeworks
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">
+                <i class="fa fa-circle-o"></i> Add Homework
+              </a>
+            </li>
           </ul>
+        </li> -->
+        
+        <li>
+          <a href="{{url('/users')}}">
+            <i class="fa fa-users"></i> <span>User Management</span>
+          </a>
         </li>
-        <li class="treeview">
+
+        <!-- <li class="treeview">
           <a href="javascript:void(0);">
             <i class="fa fa-table"></i> <span>User Management</span>
             <span class="pull-right-container">
@@ -43,8 +63,10 @@
             <li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> Simple tables</a></li>
             <li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> Data tables</a></li>
           </ul>
-        </li>
-        <li class="treeview">
+        </li> -->
+        
+        <!-- MULTILEVEL EXAMPLE START-->
+        <!-- <li class="treeview">
           <a href="javascript:void(0);">
             <i class="fa fa-share"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -76,8 +98,11 @@
             </li>
             <li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
-        </li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Home Work Management</span></a></li>
+        </li> -->
+        <!-- MULTILEVEL EXAMPLE END-->
+
+        <!-- ADMIN LTE LINK -->
+        <!-- <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Home Work Management</span></a></li> -->
       </ul>
     </section>
     <!-- /.sidebar -->
