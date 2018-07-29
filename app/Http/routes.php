@@ -27,9 +27,9 @@ Route::auth();
 	    return view('dashboard');
 	});
 
-	Route::get('homeworks', function () {
-		return view('homeworks.homeworks');
-	});
+	// Route::get('homeworks', function () {
+	// 	return view('homeworks.homeworks');
+	// });
 
 	Route::get('lteview', function () {
 	    return view('admin_lte_view.adminlte-view');

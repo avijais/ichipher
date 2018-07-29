@@ -11,9 +11,7 @@ class HomeworkController extends Controller
 {
     public function homeworks()
     {
-    	// print_r("from homeworks homeworks");
-    	$homeworks = Homework::all()->toArray();
-    	// dd($homeworks);
-    	return json_encode($homeworks);
+    	$homeworks = Homework::with(['standard', 'section', 'subject', 'user'])->get()->toArray();
+    	return view('homeworks.homeworks', ['homeworks' => $homeworks]);
     }
 }
