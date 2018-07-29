@@ -31,5 +31,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call(StandardsTableSeeder::class);
         $this->command->info("Standard table seeded successfully");
+
+        $this->call(StandardSectionTableSeeder::class);
+        $this->command->info("Standard section table seeded successfully");
+
+        $this->call(StandardSubjectTableSeeder::class);
+        $this->command->info("Standard subject table seeded successfully");
+
+        $this->call(HomeworksTableSeeder::class);
+        $this->command->info("Homeworks table seeded successfully");
     }
 }
