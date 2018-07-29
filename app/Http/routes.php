@@ -49,5 +49,3 @@ Route::get('roles', 'UserController@roles');
 // Route::group(['middleware' => ['auth:api']], function () {
 	// Route::post('goinside','LoginController@goinside');
 // });
-
-

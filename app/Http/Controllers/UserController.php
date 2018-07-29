@@ -12,7 +12,7 @@ class UserController extends Controller
     public function users()
     {
     	$users = User::all()->toArray();
-    	return json_encode($users);
+        return view('user.users', ['users'=>$users]);
     }
 
     public function roles()
