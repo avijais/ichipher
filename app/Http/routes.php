@@ -44,6 +44,7 @@ Route::get('sections', 'StandardController@sections');
 Route::get('subjects', 'StandardController@subjects');
 Route::get('clients', 'ClientController@clients');
 Route::get('users', 'UserController@users');
+Route::get('roles', 'UserController@roles');
 
 // Route::group(['middleware' => ['auth:api']], function () {
 	// Route::post('goinside','LoginController@goinside');
