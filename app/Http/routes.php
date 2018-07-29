@@ -41,6 +41,7 @@ Route::post('goinside','LoginController@goinside');
 Route::get('homeworks','HomeworkController@homeworks');
 Route::get('standards', 'StandardController@standards');
 Route::get('sections', 'StandardController@sections');
+Route::get('subjects', 'StandardController@subjects');
 
 // Route::group(['middleware' => ['auth:api']], function () {
 	// Route::post('goinside','LoginController@goinside');
