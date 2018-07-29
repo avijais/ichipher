@@ -67,7 +67,7 @@
         @include('layouts.js')
         <!-- for login page -->
         <script src="bower_components/admin-lte/plugins/iCheck/icheck.min.js"></script>
-        <script src="{{asset('assets/app/js/login.js')}}"></script>
+        <script src="{{asset('assets/web/js/login.js')}}"></script>
         <script>
             $(function () {
                 $('input').iCheck({

@@ -35,5 +35,5 @@
 <script src="bower_components/admin-lte/dist/js/pages/dashboard.js"></script>
 <!-- Manage for demo purposes -->
 <script src="bower_components/admin-lte/dist/js/demo.js"></script>
-<script src="{{asset('assets/app/js/config.js')}}"></script>
-<script src="{{asset('assets/app/js/cons.js')}}"></script>
+<script src="{{asset('assets/web/js/config.js')}}"></script>
+<script src="{{asset('assets/web/js/cons.js')}}"></script>
