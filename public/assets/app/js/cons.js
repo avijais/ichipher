@@ -1,5 +1,0 @@
-var cons = {
-	messeges : {
-		
-	}
-}
