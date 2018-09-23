@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="content-header">
+    <section class="content-header">
       <h1>
         Dashboard
         <small>Control panel</small>
@@ -81,9 +81,9 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
+        <section class="col-lg-12 connectedSortable">
           <!-- TO DO List -->
-          <div class="box box-primary">
+          <?php /*<div class="box box-primary">
             <div class="box-header">
               <i class="ion ion-clipboard"></i>
 
@@ -104,7 +104,7 @@
             <div class="box-footer clearfix no-border">
               <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
             </div>
-          </div>
+          </div> */?>
           <!-- /.box -->
 
           <!-- quick email widget -->
