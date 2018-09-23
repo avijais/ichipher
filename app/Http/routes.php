@@ -10,42 +10,26 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('lteview', function () {
+    return view('admin_lte_view.adminlte-view');
+});
 
-Route::auth();
+Route::get('/','LoginController@loginView');
+Route::post('login','LoginController@login');
+Route::get('register','LoginController@register');
 
-// Route::group(['middleware' => ['web']], function () {
-    /*VIEWS*/
-	Route::get('/', function () {
-	    return view('login');
-	});
+Route::group(['middleware' => ['is-loggedin']], function () {
+	Route::get('logout', 'LoginController@logout');
+	Route::get('dashboard', 'DashboardController@dashboard');
+	Route::get('homeworks','HomeworkController@homeworks');
+	Route::get('standards', 'StandardController@standards');
+	Route::get('sections', 'StandardController@sections');
+	Route::get('subjects', 'StandardController@subjects');
+	Route::get('clients', 'ClientController@clients');
+	Route::get('users', 'UserController@users');
+	Route::get('roles', 'UserController@roles');
+});
 
-	Route::get('register', function () {
-	    return view('register');
-	});
-
-	Route::get('dashboard', function () {
-	    return view('dashboard');
-	});
-
-	// Route::get('homeworks', function () {
-	// 	return view('homeworks.homeworks');
-	// });
-
-	Route::get('lteview', function () {
-	    return view('admin_lte_view.adminlte-view');
-	});
-// });
-
-/*API*/
-Route::post('goinside','LoginController@goinside');
-Route::get('homeworks','HomeworkController@homeworks');
-Route::get('standards', 'StandardController@standards');
-Route::get('sections', 'StandardController@sections');
-Route::get('subjects', 'StandardController@subjects');
-Route::get('clients', 'ClientController@clients');
-Route::get('users', 'UserController@users');
-Route::get('roles', 'UserController@roles');
-
-// Route::group(['middleware' => ['auth:api']], function () {
-	// Route::post('goinside','LoginController@goinside');
+// Route::group(['middleware' => ['api']], function () {
+// 	Route::post('goinside','LoginController@goinside');
 // });
