@@ -3,7 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Request;
+use App\Models\User;
 class CheckApiToken
 {
     /**
@@ -15,14 +16,24 @@ class CheckApiToken
      */
     public function handle($request, Closure $next)
     {
-        if ($request->has( 'api-token' ) && Auth::guard($guard)->check() ) {
-            return $next($request);    
+        if ($request->headers->has('api_token') && $request->headers->has('user_id')) {
+            // var_dump($request->headers->get('api_token'));
+            // $apiToken = $request->headers->get('api_token');
+            // $userId = $request->headers->get('user_id');
+
+            $apiToken = Request::header('api_token');
+            $userId = Request::header('user_id');
+
+            $model = User::where(['api_token' => $apiToken, 'id' => $userId])->first();
+
+            if (!$model) {
+                return response(['status' => 'error', 'message' => 'Authentication faild!!']);
+            }
+            return $next($request);
+        } else {
+            return response(['status' => 'error', 'message' => "Please send required data for authentication!!"]);
         }
-        
-        $response = ['status' => 'error', 'message' => 'Authentication faild!!'];
-        return $response;
 
         // return redirect('/');
-        
     }
 }
