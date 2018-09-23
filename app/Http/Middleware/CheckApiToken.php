@@ -17,7 +17,7 @@ class CheckApiToken
     public function handle($request, Closure $next)
     {
         if ($request->headers->has('api_token') && $request->headers->has('user_id')) {
-            // var_dump($request->headers->get('api_token'));
+            // CAN USE FOLLOWING WAY TO ACCESS HEADER DATA
             // $apiToken = $request->headers->get('api_token');
             // $userId = $request->headers->get('user_id');
 
