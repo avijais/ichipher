@@ -27,6 +27,7 @@ class LoginController extends Controller
         return view('login');
     }
 
+    // used for session based login
     public function login(Request $request)
     {
         $isUserExist = User::where('email',$request->input('email'))->get()->toArray();
@@ -56,5 +57,39 @@ class LoginController extends Controller
     {
     	print_r($request->all());
     	print_r("from goinside");
+    }
+
+    public function loginApi(Request $request)
+    {
+        if (!$request->input('email') || !$request->input('password')) {
+            $response = ['status' => 'error', 'message' => 'Email id and password is required!!'];
+        } else {
+            $isUserExist = User::where('email', $request->input('email'))->get()->toArray();
+            if ($isUserExist) {
+                if (Hash::check($request->input('password'), $isUserExist[0]['password'])) {
+                    $userData = [
+                        'is_loggedin' => true,
+                        'id' => $isUserExist[0]['password'],
+                        'client_id' => $isUserExist[0]['client_id'],
+                        'fname' => $isUserExist[0]['fname'],
+                        'lname' => $isUserExist[0]['lname'],
+                        'mobile' => $isUserExist[0]['mobile'],
+                    ];
+                    $request->session()->put('userData', $userData);
+
+                    // print_r($request->session()->get('userData'));
+
+                    $response = [
+                        'status' => 'success',
+                        'message' => 'Login successfully.', 'data' => $isUserExist
+                    ];
+                } else {
+                    $response = ['status' => 'error', 'message' => 'Password mismatch!!'];
+                }
+            } else {
+                $response = ['status' => 'error', 'message' => 'Account not found!!'];
+            }
+        }
+        return response($response);
     }
 }

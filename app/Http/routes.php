@@ -11,6 +11,9 @@
 |
 */
 
+Route::post('api/login','LoginController@loginApi');
+Route::get('register','LoginController@register');
+
 Route::group(['prefix' => 'api', 'middleware' => ['is-token']], function () {
 	// Route::get('logout', 'LoginController@logout');
 	// Route::get('dashboard', 'DashboardController@dashboard');
@@ -28,8 +31,6 @@ Route::get('lteview', function () {
 });
 
 Route::get('/','LoginController@loginView');
-Route::post('login','LoginController@login');
-Route::get('register','LoginController@register');
 
 // Route::group(['middleware' => ['is-loggedin']], function () {
 // 	Route::get('logout', 'LoginController@logout');
