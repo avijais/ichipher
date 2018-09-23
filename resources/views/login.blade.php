@@ -21,7 +21,8 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form id="login" action="" method="post">
+                <form id="login" action="/login" method="post">
+                     {{ csrf_field() }} 
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control" name="email" placeholder="Email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
