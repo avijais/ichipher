@@ -11,6 +11,10 @@
 |
 */
 
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Methods:POST, GET, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Headers:Content-Type, api_token, user_id, Authorization, Origin");
+
 Route::post('api/login','LoginController@loginApi');
 Route::get('register','LoginController@register');
 

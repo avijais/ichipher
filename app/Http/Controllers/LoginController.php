@@ -64,16 +64,17 @@ class LoginController extends Controller
         if (!$request->input('email') || !$request->input('password')) {
             $response = ['status' => 'error', 'message' => 'Email id and password is required!!'];
         } else {
-            $isUserExist = User::where('email', $request->input('email'))->get()->toArray();
+            $isUserExist = User::where('email', $request->input('email'))->first();
+            // ->toArray();
             if ($isUserExist) {
-                if (Hash::check($request->input('password'), $isUserExist[0]['password'])) {
+                if (Hash::check($request->input('password'), $isUserExist->password)) {
                     $userData = [
                         'is_loggedin' => true,
-                        'id' => $isUserExist[0]['password'],
-                        'client_id' => $isUserExist[0]['client_id'],
-                        'fname' => $isUserExist[0]['fname'],
-                        'lname' => $isUserExist[0]['lname'],
-                        'mobile' => $isUserExist[0]['mobile'],
+                        'id' => $isUserExist->password,
+                        'client_id' => $isUserExist->client_id,
+                        'fname' => $isUserExist->fname,
+                        'lname' => $isUserExist->lname,
+                        'mobile' => $isUserExist->mobile,
                     ];
                     $request->session()->put('userData', $userData);
 
