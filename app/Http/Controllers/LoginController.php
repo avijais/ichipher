@@ -68,15 +68,15 @@ class LoginController extends Controller
             // ->toArray();
             if ($isUserExist) {
                 if (Hash::check($request->input('password'), $isUserExist->password)) {
-                    $userData = [
-                        'is_loggedin' => true,
-                        'id' => $isUserExist->password,
-                        'client_id' => $isUserExist->client_id,
-                        'fname' => $isUserExist->fname,
-                        'lname' => $isUserExist->lname,
-                        'mobile' => $isUserExist->mobile,
-                    ];
-                    $request->session()->put('userData', $userData);
+                    // $userData = [
+                    //     'is_loggedin' => true,
+                    //     'id' => $isUserExist->id,
+                    //     'client_id' => $isUserExist->client_id,
+                    //     'fname' => $isUserExist->fname,
+                    //     'lname' => $isUserExist->lname,
+                    //     'mobile' => $isUserExist->mobile,
+                    // ];
+                    // $request->session()->put('userData', $userData);
 
                     // print_r($request->session()->get('userData'));
 
