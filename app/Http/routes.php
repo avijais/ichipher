@@ -22,9 +22,10 @@ Route::group(['prefix' => 'api', 'middleware' => ['is-token']], function () {
 	// Route::get('logout', 'LoginController@logout');
 	// Route::get('dashboard', 'DashboardController@dashboard');
 	Route::get('homeworks','HomeworkController@homeworks');
-	// Route::get('standards', 'StandardController@standards');
-	// Route::get('sections', 'StandardController@sections');
-	// Route::get('subjects', 'StandardController@subjects');
+	Route::post('addHomework', 'HomeworkController@addHomework');
+	Route::get('standards', 'StandardController@standards');
+	Route::get('sections', 'StandardController@sections');
+	Route::get('subjects', 'StandardController@subjects');
 	// Route::get('clients', 'ClientController@clients');
 	// Route::get('users', 'UserController@users');
 	// Route::get('roles', 'UserController@roles');

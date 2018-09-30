@@ -13,18 +13,21 @@ class StandardController extends Controller
     public function standards()
     {
     	$standard = Standard::all()->toArray();
-    	return json_encode($standard);
+        return response(['status' => 'success', 'data' => $standard]);
+    	// return json_encode($standard);
     }
 
     public function sections()
     {
     	$sections = Section::all()->toArray();
-    	return json_encode($sections);
+        return response(['status' => 'success', 'data' => $sections]);
+    	// return json_encode($sections);
     }
 
     public function subjects()
     {
     	$subjects = Subject::all()->toArray();
-    	return json_encode($subjects);
+        return response(['status' => 'success', 'data' => $subjects]);
+    	// return json_encode($subjects);
     }
 }
