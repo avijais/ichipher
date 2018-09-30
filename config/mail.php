@@ -29,7 +29,8 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    // 'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +56,8 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    // 'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'homeservice1988@gmail.com', 'name' => 'homeservice1988'],
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +83,8 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    // 'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME', 'homeservice1988@gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +97,8 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    // 'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,5 +112,8 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+    // added by me following line
+    // 'pretend' => false,
 
 ];
