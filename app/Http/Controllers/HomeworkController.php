@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Homework;
 use Illuminate\Support\Facades\Input;
+use Mail;
+use App\Models\User;
 
 class HomeworkController extends Controller
 {
@@ -23,14 +25,14 @@ class HomeworkController extends Controller
 
         $postData = $request->input();
         // print_r($postData);
-        $userData = $request->session()->get('userData');
+        $loggedinUserData = $request->session()->get('userData');
 
         $toBeAddHomework = [
             'standard_id' => $postData['standard_id'],
             'section_id' => $postData['section_id'],
             'subject_id' => $postData['subject_id'],
             'description' => $postData['description'],
-            'created_by' => $userData['id'],
+            'created_by' => $loggedinUserData['id'],
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ];
@@ -50,11 +52,25 @@ class HomeworkController extends Controller
         $insertReponse = 1;
         // Homework::insert($toBeAddHomework)->id;
         if ($insertReponse) {
+            $clientId = $loggedinUserData['client_id'];
+            $clientId = 2;
+            $students = User::where(['role_id' => 5, 'client_id' => $clientId])->select('fname','lname','email')->get()->toArray();
+            // print_r($students);
+            $this->emailHomework($students);
             $response = ["status" => "success", "message" => "Homework added successfully."];
         } else {
             $response = ["status" => "error", "message" => "Homework not added successfully, Please try after sometime!!"];
         }
 
         return response($response);
+    }
+
+    public function emailHomework($students)
+    {
+        $student = [];
+        Mail::send('emails.homework', ['student' => $student], function($m) use ($student) {
+            $m->from('avinash152090@gmail.com', 'Your Application');
+            $m->to('avinashjaiswal090@gmail.com', 'Avinash')->subject('This is homework');
+        });
     }
 }

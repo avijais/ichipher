@@ -112,8 +112,4 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
-
-    // added by me following line
-    // 'pretend' => false,
-
 ];
