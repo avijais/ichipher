@@ -41,17 +41,18 @@ class HomeworkController extends Controller
             $toBeAddHomework['title'] = $postData['title'];
         }
 
-        // if (!empty($postData['remarks'])) {
-        //     $toBeAddHomework['remarks'] = $postData['remarks'];
-        // }
+        if (!empty($postData['remarks'])) {
+            $toBeAddHomework['remarks'] = $postData['remarks'];
+        }
 
         if (!empty($postData['reference'])) {
             $toBeAddHomework['reference'] = $postData['reference'];
         }
 
-        // if (!empty($postData['submission_date'])) {
-        //     $toBeAddHomework['submission_date'] = $postData['submission_date'];
-        // }
+        if (!empty($postData['submission_date'])) {
+            $date = new \DateTime($postData['submission_date']);
+            $toBeAddHomework['submission_date'] = $date->format('Y-m-d');
+        }
 
         // $insertReponse = 1;
         $insertReponse = Homework::insert($toBeAddHomework);
