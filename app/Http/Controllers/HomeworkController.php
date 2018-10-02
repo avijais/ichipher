@@ -37,26 +37,36 @@ class HomeworkController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ];
 
-        if (!empty($postData['title']))
+        if (!empty($postData['title'])) {
             $toBeAddHomework['title'] = $postData['title'];
+        }
 
-        if (!empty($postData['remarks']))
-            $toBeAddHomework['remarks'] = $postData['remarks'];
+        // if (!empty($postData['remarks'])) {
+        //     $toBeAddHomework['remarks'] = $postData['remarks'];
+        // }
 
-        if (!empty($postData['reference']))
+        if (!empty($postData['reference'])) {
             $toBeAddHomework['reference'] = $postData['reference'];
+        }
 
-        if (!empty($postData['submission_date']))
-            $toBeAddHomework['submission_date'] = $postData['submission_date'];
+        // if (!empty($postData['submission_date'])) {
+        //     $toBeAddHomework['submission_date'] = $postData['submission_date'];
+        // }
 
-        $insertReponse = 1;
-        // Homework::insert($toBeAddHomework)->id;
+        // $insertReponse = 1;
+        $insertReponse = Homework::insert($toBeAddHomework);
+        
         if ($insertReponse) {
             $clientId = $loggedinUserData['client_id'];
             $clientId = 2;
+
             $students = User::where(['role_id' => 5, 'client_id' => $clientId])->select('fname','lname','email')->get()->toArray();
-            // print_r($students);
-            $this->emailHomework($students);
+
+            if (!empty($postData['subject']))
+                $toBeAddHomework['subject'] = $postData['subject'];
+
+            $this->emailHomework($students, $toBeAddHomework, $loggedinUserData);
+
             $response = ["status" => "success", "message" => "Homework added successfully."];
         } else {
             $response = ["status" => "error", "message" => "Homework not added successfully, Please try after sometime!!"];
@@ -65,12 +75,16 @@ class HomeworkController extends Controller
         return response($response);
     }
 
-    public function emailHomework($students)
+    public function emailHomework($students, $homeworkDetails, $loggedinUserData)
     {
-        $student = [];
-        Mail::send('emails.homework', ['student' => $student], function($m) use ($student) {
-            $m->from('avinash152090@gmail.com', 'Your Application');
-            $m->to('avinashjaiswal090@gmail.com', 'Avinash')->subject('This is homework');
+        // $emails = ['avinashjaiswal090@gmail.com','homeservice1988@gmail.com'];
+        foreach ($students as $student) {
+            $emails[] = $student['email'];
+        }
+
+        Mail::send('emails.homework', ['emails' => $emails, 'homeworkDetails' => $homeworkDetails, 'loggedinUserData' => $loggedinUserData], function($m) use ($homeworkDetails, $emails, $loggedinUserData) {
+            // $m->from('homeservice1988@gmail.com', 'Teacher');
+            $m->to($emails, '')->subject('Homework | ' . @$homeworkDetails['subject']);
         });
     }
 }
